@@ -1,8 +1,8 @@
 package com.dsandalgo.Q2.services;
 
-public class MergeSort {
+public class ReverseSort {
 
-    public void sort(int[] notes, int low, int high) {
+    public int[] sort(int[] notes, int low, int high) {
         if (low < high) {
 
             // Calculate mid
@@ -15,6 +15,8 @@ public class MergeSort {
             // Merge left and right arrays
             merge(notes, low, mid, high);
         }
+
+        return notes;
 
     }
 
