@@ -1,6 +1,28 @@
 package com.dsandalgo.Q2.services;
 
-public class FindDenomination {
+import java.util.Scanner;
+
+public class ProcessDenominations {
+
+    // Function to input the currency
+    public int[] input(int[] notes) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the currency denomination values: ");
+        for (int i = 0; i < notes.length; i++) {
+            notes[i] = scanner.nextInt();
+            // Throw exception in case the entered denomination is 0 or less than it
+            if (notes[i] <= 0) {
+                throw new ArithmeticException("Cannot have a currency with denomination 0 or less");
+            }
+            // Throw exception in case entered denomination is 1
+            else if (notes[i] == 1) {
+                throw new ArithmeticException("The amount can be paid with notes of denomination 1");
+            }
+        }
+
+        return notes;
+    }
+
     public void findMinCombo(int[] notes, int amountToPay) {
         int[] numberOfDenominations = new int[notes.length];
         for (int i = 0; i < notes.length; i++) {
